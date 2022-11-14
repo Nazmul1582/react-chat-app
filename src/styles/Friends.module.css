@@ -1,0 +1,12 @@
+.friends {
+  background-color: var(--white);
+  height: calc(100% - 6rem);
+  margin: 1rem 1rem 0 0;
+  border-radius: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow-y: scroll;
+}
+.chatedUser > div {
+  padding: 1rem;
+  cursor: pointer;
+}

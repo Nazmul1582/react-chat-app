@@ -1,9 +1,15 @@
 import React from "react";
+import Navbar from "./Navbar";
+import Friends from "./Friends";
+import css from "../styles/Sidebar.module.css";
 
-export default function Sidebar() {
+const Sidebar = () => {
   return (
-    <div>
-      <h1>Sidebar</h1>
+    <div className={css.sidebar}>
+      <Navbar />
+      <Friends />
     </div>
   );
-}
+};
+
+export default Sidebar;

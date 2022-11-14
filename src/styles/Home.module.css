@@ -1,0 +1,23 @@
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  border: 1px solid var(--white);
+  background-color: var(--light-white);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 75%;
+  height: 80%;
+  display: flex;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 575.98px) {
+  .container {
+    padding: 1rem;
+    gap: 0;
+  }
+}

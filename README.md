@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+<a style="text-align: center, font-size: 25px" href="https://github.com/Nazmul1582/react-chat-app">Chat App using React js and Firebase</a>
+
+<img src="./src/assets/images/chat-app-home-page-design.png" />
+<br/>
+<img src="./src/assets/images/chat-app-register.png" />
+<br/>
+<img src="./src/assets/images/chat-app-login.png" />
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

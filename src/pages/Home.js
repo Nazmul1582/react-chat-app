@@ -1,11 +1,17 @@
 import React from "react";
+import Chat from "../components/Chat";
+import Sidebar from "../components/Sidebar";
+import css from "../styles/Home.module.css";
 
-const Home = () => {
+export default function Home() {
   return (
-    <div className="home">
-      <h1>Home</h1>
+    <div>
+      <div className={css.home}>
+        <div className={css.container}>
+          <Sidebar />
+          <Chat />
+        </div>
+      </div>
     </div>
   );
-};
-
-export default Home;
+}

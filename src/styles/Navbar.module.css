@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 5rem;
+}
+
+.logoutIcon {
+  font-size: 2.5rem;
+  cursor: pointer;
+  background-color: var(--white);
+  color: var(--link-clr);
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+}

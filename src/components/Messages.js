@@ -1,9 +1,12 @@
-import React from "react";
+import css from "../styles/Messages.module.css";
+import Message from "./Message";
 
-export default function Messages() {
+const Messages = () => {
   return (
-    <div>
-      <h1>Messages</h1>
+    <div className={css.messages}>
+      <Message />
     </div>
   );
-}
+};
+
+export default Messages;

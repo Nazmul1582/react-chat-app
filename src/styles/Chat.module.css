@@ -1,0 +1,11 @@
+.chat {
+  flex: 3;
+}
+.activeUser {
+  height: 5rem;
+}
+@media screen and (max-width: 575.98px) {
+  .active-user div {
+    justify-content: flex-end;
+  }
+}

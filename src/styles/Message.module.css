@@ -1,0 +1,56 @@
+.message {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.message .msgInfo {
+  min-width: 4rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+}
+.message .msgInfo img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.msgContent {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.msgContent .text {
+  font-size: 1.5rem;
+  background-color: var(--white);
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  border-radius: 0 1rem 1rem 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+}
+.owner {
+  flex-direction: row-reverse;
+}
+.owner .msgContent {
+  align-items: flex-end;
+}
+.owner .text {
+  border-radius: 1rem 0 1rem 1rem;
+  background-color: var(--msg-bg);
+  color: var(--white);
+}
+.msgContent img {
+  width: 20rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 450px) {
+  .message,
+  .owner {
+    flex-direction: column;
+  }
+  .owner {
+    align-items: end;
+  }
+}
