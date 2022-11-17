@@ -1,39 +1,41 @@
-import owner from "../assets/images/client5.jpg";
-import user from "../assets/images/client6.jpg";
-import img from "../assets/images/mountain.jpg";
+import { useEffect, useRef } from "react";
+import Moment from "react-moment";
+import { useChat } from "../contexts/ChatContext";
+import { useAuth } from "../contexts/AuthContext";
 import css from "../styles/Message.module.css";
 
-export default function Message() {
+export default function Message({ message }) {
+  const { currentUser } = useAuth();
+  const { data } = useChat();
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
   return (
     <>
-      <div className={`${css.owner} ${css.message}`}>
+      <div
+        ref={ref}
+        className={
+          currentUser.uid === message.senderId
+            ? `${css.owner} ${css.message}`
+            : css.message
+        }
+      >
         <div className={css.msgInfo}>
-          <img src={owner} alt="img" />
-          <span>Just now</span>
+          <img
+            src={
+              currentUser.uid === message.senderId
+                ? currentUser.photoURL
+                : data.user.photoURL
+            }
+            alt="img"
+          />
+          <Moment fromNow>{message.date.toDate()}</Moment>
         </div>
         <div className={css.msgContent}>
-          <p className={css.text}>Hello!</p>
-          <img src={img} alt="" />
-        </div>
-      </div>
-
-      <div className={`${css.message}`}>
-        <div className={css.msgInfo}>
-          <img src={user} alt="img" />
-          <span>Just now</span>
-        </div>
-        <div className={css.msgContent}>
-          <p className={css.text}>Hello! What's up?</p>
-        </div>
-      </div>
-
-      <div className={`${css.owner} ${css.message}`}>
-        <div className={css.msgInfo}>
-          <img src={owner} alt="img" />
-          <span>Just now</span>
-        </div>
-        <div className={css.msgContent}>
-          <p className={css.text}>Alhamdulillah! Allah kept me well.</p>
+          {message.text && <p className={css.text}>{message.text}</p>}
+          <img src={message.img} alt="" />
         </div>
       </div>
     </>

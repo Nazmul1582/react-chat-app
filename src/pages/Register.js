@@ -1,9 +1,33 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import Add from "../assets/images/addAvatar.png";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import css from "../styles/Register.module.css";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Register() {
+  const [err, setErr] = useState(false);
+  const navigate = useNavigate();
+  const { signup } = useAuth();
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const displayName = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
+    const confirmPassword = e.target[3].value;
+    const img = e.target[4].files[0];
+    if (password !== confirmPassword) {
+      setErr("Passwords don't matched!");
+    } else {
+      try {
+        await signup(displayName, email, password, img, navigate);
+      } catch (error) {
+        setErr(true);
+      }
+    }
+  };
+
   return (
     <div className={css.register}>
       <div className={css.container}>
@@ -12,7 +36,7 @@ export default function Register() {
           <h3>Register</h3>
         </div>
         <div className={css.formWrapper}>
-          <form>
+          <form onSubmit={submitHandler}>
             <input type="text" required placeholder="Enter your name" />
             <input type="email" required placeholder="Enter your email" />
             <input type="password" required placeholder="Enter your password" />
@@ -32,8 +56,9 @@ export default function Register() {
               <img src={Add} alt="" />
               <span>Add a avatar</span>
             </label>
+            {err && <p className="error">{err}</p>}
             <Button>Sign Up</Button>
-            {/* <p className="error"> Something went wrong! </p> */}
+            {err && <p className="error"> Something went wrong! </p>}
           </form>
           <p className={css.msg}>
             Do you have an account? <Link to="/login">Login</Link>

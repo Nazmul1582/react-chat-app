@@ -1,10 +1,10 @@
-<a style="text-align: center, font-size: 25px" href="https://github.com/Nazmul1582/react-chat-app">Chat App using React js and Firebase</a>
+# Chat App using React js and Firebase.
 
-<img src="./src/assets/images/chat-app-home-page-design.png" />
-<br/>
-<img src="./src/assets/images/chat-app-register.png" />
-<br/>
-<img src="./src/assets/images/chat-app-login.png" />
+<img src="./src/assets/images/chats.png" />
+<br />
+<img src="./src/assets/images/chat-app-register-with validation.png" />
+<br />
+<img src="./src/assets/images/chat-app-login-with-validation.png" />
 
 ## Getting Started with Create React App
 

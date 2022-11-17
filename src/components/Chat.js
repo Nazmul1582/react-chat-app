@@ -1,16 +1,17 @@
 import Messages from "./Messages";
 import Input from "./Input";
-import user from "../assets/images/client6.jpg";
+import { useChat } from "../contexts/ChatContext";
 import css from "../styles/Chat.module.css";
 
 const Chat = () => {
+  const { data } = useChat();
   return (
     <div className={css.chat}>
       <div className={css.activeUser}>
         <div className="user">
-          <img src={user} alt="" />
+          {data.user.photoURL && <img src={data.user.photoURL} alt="" />}
           <div className="userInfo">
-            <span>Smith</span>
+            <span>{data.user.displayName}</span>
           </div>
         </div>
       </div>
