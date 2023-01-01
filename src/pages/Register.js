@@ -54,7 +54,7 @@ export default function Register() {
             />
             <label htmlFor="file" className={css.fileField}>
               <img src={Add} alt="" />
-              <span>Add a avatar</span>
+              <span>Add an avatar</span>
             </label>
             {err && <p className="error">{err}</p>}
             <Button>Sign Up</Button>
