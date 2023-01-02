@@ -14,14 +14,17 @@ export default function Login() {
     const email = e.target[0].value;
     const password = e.target[1].value;
     const confirmPassword = e.target[2].value;
-    if (password !== confirmPassword) {
-      setErr("Passwords don't matched!");
-    } else {
-      try {
-        await login(email, password, confirmPassword);
-        navigate("/");
-      } catch (error) {
-        setErr(true);
+
+    try {
+      await login(email, password, confirmPassword);
+      navigate("/");
+    } catch (error) {
+      if (password !== confirmPassword) {
+        setErr("Password hasn't matched!");
+      } else if (password.length <= 5 || confirmPassword.length <= 5) {
+        setErr("Password has to more than 5 characters");
+      } else {
+        setErr("Something went wrong!");
       }
     }
   };
@@ -41,9 +44,8 @@ export default function Login() {
               required
               placeholder="Enter your confirm password"
             />
-            {err && <p className="error">{err}</p>}
             <Button>Login</Button>
-            {err && <p className="error"> Something went wrong! </p>}
+            {err && <p className="error">{err}</p>}
           </form>
           <p className={css.msg}>
             Don't you have an account? <Link to="/register">Register</Link>

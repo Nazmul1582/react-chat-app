@@ -113,3 +113,8 @@ input::placeholder {
     display: none;
   }
 }
+@media screen and (max-width: 400px) {
+  .userInfo span {
+    font-size: 1.3rem;
+  }
+}

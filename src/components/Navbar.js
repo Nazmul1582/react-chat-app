@@ -13,7 +13,11 @@ const Navbar = () => {
           alt=""
         />
         <div className={`${css.hide} userInfo`}>
-          <span>{currentUser.displayName}</span>
+          <span>
+            {currentUser.displayName?.length >= 12
+              ? currentUser.displayName.split(" ")[0]
+              : currentUser.displayName}
+          </span>
         </div>
       </div>
       <div className={css.logoutIcon} onClick={logout}>

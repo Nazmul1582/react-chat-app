@@ -6,6 +6,7 @@ import avatar from "../assets/images/avatar.png";
 
 const Chat = () => {
   const { data } = useChat();
+
   return (
     <div className={css.chat}>
       <div className={css.activeUser}>
@@ -18,7 +19,11 @@ const Chat = () => {
             />
           )}
           <div className={`userInfo`}>
-            <span>{data.user.displayName}</span>
+            <span>
+              {data.user.displayName?.length >= 12
+                ? data.user.displayName.split(" ")[0]
+                : data.user.displayName}
+            </span>
           </div>
         </div>
       </div>

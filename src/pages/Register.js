@@ -17,14 +17,19 @@ export default function Register() {
     const password = e.target[2].value;
     const confirmPassword = e.target[3].value;
     const img = e.target[4].files[0];
-    if (password !== confirmPassword) {
-      setErr("Passwords don't matched!");
-    } else {
-      try {
+
+    try {
+      if (password !== confirmPassword) {
+        setErr("Password hasn't matched!");
+      } else if (password.length <= 5 || confirmPassword.length <= 5) {
+        setErr("Password has to more than 5 characters");
+      } else if (img === undefined) {
+        setErr("Image is required!");
+      } else {
         await signup(displayName, email, password, img, navigate);
-      } catch (error) {
-        setErr(true);
       }
+    } catch (error) {
+      setErr("Something went wrong!");
     }
   };
 
@@ -48,7 +53,6 @@ export default function Register() {
             <input
               type="file"
               id="file"
-              required
               name="file"
               style={{ display: "none" }}
             />
@@ -56,9 +60,8 @@ export default function Register() {
               <img src={Add} alt="" />
               <span>Add an avatar</span>
             </label>
-            {err && <p className="error">{err}</p>}
             <Button>Sign Up</Button>
-            {err && <p className="error"> Something went wrong! </p>}
+            {err && <p className="error">{err}</p>}
           </form>
           <p className={css.msg}>
             Do you have an account? <Link to="/login">Login</Link>

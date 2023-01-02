@@ -53,4 +53,10 @@
   .owner {
     align-items: end;
   }
+  .message .msgInfo {
+    font-size: 1.2rem;
+  }
+  .msgContent .text {
+    font-size: 1.3rem;
+  }
 }
