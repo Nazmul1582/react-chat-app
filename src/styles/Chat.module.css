@@ -40,7 +40,8 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  border: 0.4rem solid var(--link-clr);
+  border: none;
+  outline: 0.4rem solid var(--link-clr);
   object-fit: cover;
 }
 
