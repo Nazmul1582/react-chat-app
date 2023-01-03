@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Add from "../assets/images/addAvatar.png";
+import Add from "../assets/images/avatar.png";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import css from "../styles/Register.module.css";

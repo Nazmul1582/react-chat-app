@@ -1,10 +1,25 @@
-# Chat App using React js and Firebase.
+ <br />
+ <p align="center">
+    <h1 align="center">Chat App using React Js and Firebase.</h1>
+</p>
+
+- Home page
 
 <img src="./src/assets/images/chats.png" />
-<br />
-<img src="./src/assets/images/chat-app-register-with validation.png" />
-<br />
+
+- Home page in mobile device
+
+<img src="./src/assets/images/chats-mobile-version.png" />
+
+- Register page
+
+<img src="./src/assets/images/chat-app-register-with-validation.png" />
+
+- Login page
+
 <img src="./src/assets/images/chat-app-login-with-validation.png" />
+
+# Getting Started with Create React App
 
 ## Getting Started with Create React App
 

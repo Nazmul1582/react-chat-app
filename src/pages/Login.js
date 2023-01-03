@@ -13,19 +13,12 @@ export default function Login() {
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
-    const confirmPassword = e.target[2].value;
 
     try {
-      await login(email, password, confirmPassword);
+      await login(email, password);
       navigate("/");
     } catch (error) {
-      if (password !== confirmPassword) {
-        setErr("Password hasn't matched!");
-      } else if (password.length <= 5 || confirmPassword.length <= 5) {
-        setErr("Password has to more than 5 characters");
-      } else {
-        setErr("Something went wrong!");
-      }
+      setErr("Something went wrong!");
     }
   };
   return (
@@ -39,11 +32,6 @@ export default function Login() {
           <form onSubmit={handleSubmit}>
             <input type="email" required placeholder="Enter your email" />
             <input type="password" required placeholder="Enter your password" />
-            <input
-              type="password"
-              required
-              placeholder="Enter your confirm password"
-            />
             <Button>Login</Button>
             {err && <p className="error">{err}</p>}
           </form>

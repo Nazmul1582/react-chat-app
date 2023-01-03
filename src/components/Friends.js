@@ -2,7 +2,6 @@ import useChatsHook from "../hooks/useChatsHook";
 import { useChat } from "../contexts/ChatContext";
 import Search from "./Search";
 import css from "../styles/Friends.module.css";
-import avatar from "../assets/images/avatar.png";
 
 export default function Friends() {
   const { chats } = useChatsHook();
@@ -24,12 +23,7 @@ export default function Friends() {
               key={chat[0]}
               onClick={() => handleClick(chat[1].userInfo)}
             >
-              <img
-                src={
-                  chat[1].userInfo.photoURL ? chat[1].userInfo.photoURL : avatar
-                }
-                alt=""
-              />
+              <img src={chat[1].userInfo.photoURL} alt="" />
               <div className="userInfo">
                 <span>{chat[1].userInfo.displayName}</span>
                 {chat[1].lastMessage?.text && (
