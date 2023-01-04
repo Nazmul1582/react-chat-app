@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import useSearch from "../hooks/useSearch";
 import css from "../styles/Search.module.css";
-import avatar from "../assets/images/avatar.png";
 
 export default function Search() {
   const [username, setUsername] = useState("");
@@ -27,7 +26,7 @@ export default function Search() {
               }}
               key={u.uid}
             >
-              <img src={u.photoURL ? u.photoURL : avatar} alt="" />
+              <img src={u.photoURL} alt="" />
               <div className="userInfo">
                 <span>{u.displayName}</span>
               </div>

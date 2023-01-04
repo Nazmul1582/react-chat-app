@@ -13,6 +13,9 @@
   border-radius: 5rem;
   font-size: 1.4rem;
 }
+.searchedUser {
+  background-color: var(--light-white2);
+}
 .searchedUser p {
   text-align: center;
   margin-bottom: 1rem;

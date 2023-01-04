@@ -25,6 +25,7 @@ const Input = () => {
         placeholder="type your message"
         onChange={(e) => setText(e.target.value)}
         value={text}
+        onKeyDown={(e) => e.code === "Enter" && handleSend()}
       />
       <div className={css.send} onClick={handleSend}>
         <IoSend />

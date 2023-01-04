@@ -30,6 +30,7 @@ const useSearch = () => {
             ele.data().uid !== currentUser.uid
         );
         setUser(result.map((ele) => ele.data()));
+        e.target.value === "" && setUser(null);
       });
     } catch (error) {
       setErr(true);

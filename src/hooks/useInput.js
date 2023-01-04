@@ -15,8 +15,7 @@ export default function useInput(text, setText, img, setImg) {
   const { data } = useChat();
   const { currentUser } = useAuth();
 
-  const handleSend = async (e) => {
-    e.preventDefault();
+  const handleSend = async () => {
     if (img) {
       const storageRef = ref(storage, uuid());
       await uploadBytesResumable(storageRef, img).then(() => {
@@ -32,7 +31,7 @@ export default function useInput(text, setText, img, setImg) {
           });
         });
       });
-    } else {
+    } else if (text) {
       await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
@@ -41,6 +40,8 @@ export default function useInput(text, setText, img, setImg) {
           date: Timestamp.now(),
         }),
       });
+    } else {
+      //
     }
 
     await updateDoc(doc(db, "userChats", currentUser.uid), {
