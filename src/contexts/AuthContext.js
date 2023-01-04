@@ -9,6 +9,7 @@ import {
 import { auth, db, storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import "../firebase";
 
 const AuthContext = createContext();
 
